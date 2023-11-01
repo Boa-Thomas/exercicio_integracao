@@ -7,7 +7,7 @@
             async function enviarFormulario() {
                 const valor1 = document.getElementById("campo1").value;
                 const valor2 = document.getElementById("campo2").value;
-                const response = await fetch("http://server2.thomas.t.vms.ufsc.br/multiplicar", {
+                const response = await fetch("http://server2.thomas.t.vms.ufsc.br:25565/multiplicar", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -20,7 +20,7 @@
         </script>
     </head>
     <body>
-        <p>LINK do <a href="http://server1.thomas.t.vms.ufsc.br/PEN-200.pdf">PDF</a></p>
+        <p>LINK do <a href="https://topfstedt.duckdns.org:8123/local/BLU3024.pdf">PDF</a></p>
 
 
         <p>BLU3024 - Integração</p>
