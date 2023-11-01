@@ -1,6 +1,33 @@
+<!DOCTYPE html>
 <html>
+    <head>
+        <title>BLU3024 - Integração</title>
+        <script>
+            async function enviarFormulario() {
+                const valor1 = document.getElementById("campo1").value;
+                const valor2 = document.getElementById("campo2").value;
+                const response = await fetch("http://server2.thomas.t.vms.ufsc.br/multiplicar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ valor1, valor2 })
+                });
+                const resultado = await response.text();
+                document.getElementById("resultado").innerHTML = resultado;
+            }
+        </script>
+    </head>
     <body>
-        <p>BLU3024 - Integração</p>
         <p>LINK do <a href="http://server1.thomas.t.vms.ufsc.br/PEN-200.pdf">PDF</a></p>
+
+
+        <p>BLU3024 - Integração</p>
+        <form onsubmit="event.preventDefault(); enviarFormulario();">
+            <input type="text" id="campo1" placeholder="Primeiro valor">
+            <input type="text" id="campo2" placeholder="Segundo valor">
+            <button type="submit">Enviar</button>
+        </form>
+        <div id="resultado"></div>
     </body>
 </html>
