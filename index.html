@@ -7,7 +7,10 @@
             async function enviarFormulario() {
                 const valor1 = document.getElementById("campo1").value;
                 const valor2 = document.getElementById("campo2").value;
-                const response = await fetch("http://100.78.133.118:25565/multiplicar", {
+                const operacao = document.getElementById("operacao").value;
+                const url = `http://100.78.133.118:25565/${operacao}`;
+                
+                const response = await fetch(url, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -22,11 +25,17 @@
     <body>
         <p>LINK do <a href="https://topfstedt.duckdns.org:8123/local/BLU3024.pdf">PDF</a></p>
 
-
         <p>BLU3024 - Integração</p>
         <form onsubmit="event.preventDefault(); enviarFormulario();">
             <input type="text" id="campo1" placeholder="Primeiro valor">
             <input type="text" id="campo2" placeholder="Segundo valor">
+            <select id="operacao">
+                <option value="exp">Exponencial</option>
+                <option value="multiplicar">Multiplicar</option>
+                <option value="dividir">Dividir</option>
+                <option value="somar">Somar</option>
+                <option value="subtrair">Subtrair</option>
+            </select>
             <button type="submit">Enviar</button>
         </form>
         <div id="resultado"></div>
