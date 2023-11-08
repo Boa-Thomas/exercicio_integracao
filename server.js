@@ -34,10 +34,10 @@ app.post('/subtrair', (req, res) => {
     res.send(`O resultado é ${resultado}`);
 });
 
-app.post('/exp', (req, res) => {
+app.post('/power', (req, res) => {
     const valor1 = parseFloat(req.body.valor1);
     const valor2 = parseFloat(req.body.valor2);
-    const resultado = valor1^valor2;
+    const resultado = Math.pow(valor1, valor2);
     res.send(`O resultado é ${resultado}`);
 });
 
